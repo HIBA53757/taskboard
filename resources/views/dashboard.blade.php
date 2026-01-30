@@ -62,6 +62,8 @@
             </div>
 
             <!-- Status -->
+
+
             <div>
                 <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                 <select name="status" id="status"
@@ -72,7 +74,7 @@
                 </select>
             </div>
 
-            <!-- Buttons -->
+            
             <div class="flex justify-end gap-2 mt-4">
                 <button type="button" @click="open = false"
                     class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition">Cancel</button>

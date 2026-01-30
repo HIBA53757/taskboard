@@ -22,12 +22,23 @@ Route::middleware('auth')->group(function () {
     // Tasks CRUD
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
     Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
-    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+
+    // Archive (soft delete)
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+
+    // Restore & hard delete
+    Route::patch('/tasks/{id}/restore', [TaskController::class, 'restore'])->name('tasks.restore');
+    Route::delete('/tasks/{id}/force', [TaskController::class, 'forceDelete'])->name('tasks.forceDelete');
+
+    // AJAX
     Route::patch('/tasks/{task}/status', [TaskController::class, 'updateStatus'])->name('tasks.updateStatus');
 });
+
+
 
 require __DIR__.'/auth.php';
 

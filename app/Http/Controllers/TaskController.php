@@ -69,21 +69,81 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
-    public function update()
+
+     public function edit(Task $task)
+    {
+        $this->authorizeTask($task);
+
+        return view('tasksEdit', compact('task'));
+    }
+    public function update(Request $request, Task $task)
     {
         //  update task
+        $this->authorizeTask($task);
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'deadline' => 'nullable|date',
+            'priority' => 'required|in:low,medium,high',
+            'status' => 'required|in:todo,in_progress,done',
+        ]);
+
+        $task->update($request->all());
+
+        return redirect()->route('tasks.index')->with('success', 'Task updated.');
      
     }
-    public function delete(Task $task)
+    public function destroy(Task $task)
     {
         // soft delete
-        $this->authorize('delete', $task);
-        $task->delete();
+       $this->authorizeTask($task);
 
-        return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
+        $task->delete(); // soft delete
+
+        return back()->with('success', 'Task archived.');}
+       
+        
+         public function restore($id)
+    {
+        $task = Task::onlyTrashed()
+            ->where('id', $id)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
+
+        $task->restore();
+
+        return back()->with('success', 'Task restored.');
     }
-    public function updateStatus()
+
+     public function forceDelete($id)
+    {
+        $task = Task::onlyTrashed()
+            ->where('id', $id)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
+
+        $task->forceDelete();
+
+        return back()->with('success', 'Task permanently deleted.');
+    }
+
+       
+    public function updateStatus(Request $request, Task $task)
     {
         // AJAX status change
+         $this->authorizeTask($task);
+
+        $request->validate([
+            'status' => 'required|in:todo,in_progress,done',
+        ]);
+
+        $task->update(['status' => $request->status]);
+
+        return response()->json(['success' => true]);
+    }
+     private function authorizeTask(Task $task)
+    {
+        abort_if($task->user_id !== Auth::id(), 403);
     }
 }

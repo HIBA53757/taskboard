@@ -1,0 +1,69 @@
+<mxfile host="65bd71144e">
+    <diagram id="cI4w0MfYPVJ0sF73N00P" name="Page-1">
+        <mxGraphModel dx="414" dy="361" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" value="Task" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="360" width="160" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;div&gt;-&amp;nbsp;id&lt;/div&gt;-&amp;nbsp; title&lt;div&gt;-&amp;nbsp;description&amp;nbsp;&lt;/div&gt;&lt;div&gt;- deadline&lt;/div&gt;&lt;div&gt;- priority&lt;/div&gt;&lt;div&gt;- status&lt;/div&gt;&lt;div&gt;-&amp;nbsp;sArchived&lt;/div&gt;&lt;div&gt;-&amp;nbsp;created_at &lt;/div&gt;&lt;div&gt;-updated_at&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="7">
+                    <mxGeometry y="26" width="160" height="144" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="7">
+                    <mxGeometry y="170" width="160" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="+&amp;nbsp;creer()&lt;div&gt;+ modifier()&lt;/div&gt;&lt;div&gt;+ archiver()&lt;/div&gt;&lt;div&gt;+ restaurer()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="7">
+                    <mxGeometry y="178" width="160" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="USER" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="380" width="160" height="180" as="geometry">
+                        <mxRectangle x="380" y="150" width="70" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- id&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;- email&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;- passwor&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;- role&lt;/div&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;-created_at&lt;/div&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;-update_at&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry y="26" width="160" height="94" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="15">
+                    <mxGeometry y="120" width="160" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="+register()&lt;div&gt;+login()&lt;/div&gt;&lt;div&gt;+logout()&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry y="128" width="160" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="450" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="0..*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="450" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;entryX=0.017;entryY=0.773;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="16">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="360" y="479" as="sourcePoint"/>
+                        <mxPoint x="510" y="550" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="Priority (enum)&lt;div&gt;LOW&lt;/div&gt;&lt;div&gt;MEDIUM&lt;/div&gt;&lt;div&gt;HIGH&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="300" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Status (enum)&lt;div&gt;TODO&lt;/div&gt;&lt;div&gt;IN_PROGRESS&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;DONE&lt;/span&gt;&lt;/div&gt;&lt;br&gt;&lt;p data-end=&quot;488&quot; data-start=&quot;420&quot;&gt;&lt;/p&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="500" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="edgeStyle=elbowEdgeStyle;html=1;endArrow=none;elbow=vertical;exitX=0.444;exitY=-0.018;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="37">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="20" y="484.94" as="sourcePoint"/>
+                        <mxPoint x="200" y="470" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="120" y="470"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="" style="edgeStyle=elbowEdgeStyle;html=1;endArrow=none;elbow=horizontal;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="36" target="8">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="10" y="450" as="sourcePoint"/>
+                        <mxPoint x="170" y="450" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

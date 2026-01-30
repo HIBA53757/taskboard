@@ -129,12 +129,15 @@
         </div>
 
         <!-- Tabs -->
-        <div class="flex border-b border-gray-200">
-            <button @click="activeTab = 'all'" :class="activeTab === 'all' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">All Tasks</button>
-            <button @click="activeTab = 'todo'" :class="activeTab === 'todo' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">To Do</button>
-            <button @click="activeTab = 'in-progress'" :class="activeTab === 'in-progress' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">In Progress</button>
-            <button @click="activeTab = 'done'" :class="activeTab === 'done' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">Done</button>
-        </div>
+       <div class="flex border-b border-gray-200">
+    <button @click="activeTab = 'all'" :class="activeTab === 'all' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">All Tasks</button>
+
+    <button @click="activeTab = 'todo'" :class="activeTab === 'todo' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">To Do</button>
+
+    <button @click="activeTab = 'in_progress'" :class="activeTab === 'in_progress' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">In Progress</button>
+
+    <button @click="activeTab = 'done'" :class="activeTab === 'done' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm">Done</button>
+</div>
 
         <!-- Tasks Table -->
         <!-- Tasks Table -->

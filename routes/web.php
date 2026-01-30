@@ -32,8 +32,7 @@ Route::middleware('auth')->group(function () {
 
     // Restore & hard delete
     Route::patch('/tasks/{id}/restore', [TaskController::class, 'restore'])->name('tasks.restore');
-    Route::delete('/tasks/{id}/force', [TaskController::class, 'forceDelete'])->name('tasks.forceDelete');
-
+ 
     // AJAX
     Route::patch('/tasks/{task}/status', [TaskController::class, 'updateStatus'])->name('tasks.updateStatus');
 });

@@ -7,40 +7,57 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+
+
+
+// index() → list + filter + search
+
 class TaskController extends Controller
 {
-    // List + filter + search
-    public function index(Request $request)
+    public function index()
     {
-        $query = Auth::user()->tasks();
+        //    $tasks = auth()->user()->tasks();
+        // $tasks = Auth::user()->tasks();
+        // $tasks = User::with('tasks')->first();
+            //    dd($tasks);
 
-        // Filter by status if query parameter exists
-        if ($request->has('status') && in_array($request->status, ['todo','in_progress','done'])) {
-            $query->where('status', $request->status);
-        }
+//              $user=   User::find(1);
 
-        $tasks = $query->get();
+// Auth::user()->tasks()->create([
+//     'title' => 'Test Task',
+//     'description' => 'This is a test task',
+//     'deadline' => now()->addDays(3),
+//     'priority' => 'medium',
+//     'status' => 'todo',
+// ]);
+   $tasks = Auth::user()->tasks()->get();
+        // dd($tasks );
 
-        // Stats are always global, not filtered
-        $allTasks = Auth::user()->tasks()->get();
-        $stats = [
-            'total' => $allTasks->count(),
-            'todo' => $allTasks->where('status', 'todo')->count(),
-            'in_progress' => $allTasks->where('status', 'in_progress')->count(),
-            'done' => $allTasks->where('status', 'done')->count(),
-            'overdue' => $allTasks->where('deadline', '<', now())->where('status', '!=', 'done')->count(),
-        ];
-
+         $stats = [
+        'total' => $tasks->count(),
+        'todo' => $tasks->where('status', 'todo')->count(),
+        'in_progress' => $tasks->where('status', 'in_progress')->count(),
+        'done' => $tasks->where('status', 'done')->count(),
+        'overdue' => $tasks->where('deadline', '<', now())->where('status', '!=', 'done')->count(),
+    ];
         return view('dashboard', compact('tasks','stats'));
+
+        // dd($Tasks);
+        
+
+
     }
 
     public function create()
     {
-        return view('tasks.create');
+        //  show form
+                return view('tasks.create');
+
     }
 
     public function store(Request $request)
     {
+        // create task
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -48,21 +65,20 @@ class TaskController extends Controller
             'priority' => 'required|in:low,medium,high',
             'status' => 'required|in:todo,in_progress,done',
         ]);
-
         Auth::user()->tasks()->create($request->all());
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
 
-    public function edit(Task $task)
+     public function edit(Task $task)
     {
         $this->authorizeTask($task);
 
         return view('tasksEdit', compact('task'));
     }
-
     public function update(Request $request, Task $task)
     {
+        //  update task
         $this->authorizeTask($task);
 
         $request->validate([
@@ -76,18 +92,19 @@ class TaskController extends Controller
         $task->update($request->all());
 
         return redirect()->route('tasks.index')->with('success', 'Task updated.');
+     
     }
-
     public function destroy(Task $task)
     {
-        $this->authorizeTask($task);
+        // soft delete
+       $this->authorizeTask($task);
 
-        $task->delete(); // soft delete
+        $task->delete(); 
 
-        return back()->with('success', 'Task archived.');
-    }
-
-    public function restore($id)
+        return back()->with('success', 'Task archived.');}
+       
+        
+         public function restore($id)
     {
         $task = Task::onlyTrashed()
             ->where('id', $id)
@@ -99,9 +116,13 @@ class TaskController extends Controller
         return back()->with('success', 'Task restored.');
     }
 
+    
+
+       
     public function updateStatus(Request $request, Task $task)
     {
-        $this->authorizeTask($task);
+       
+         $this->authorizeTask($task);
 
         $request->validate([
             'status' => 'required|in:todo,in_progress,done',
@@ -111,8 +132,7 @@ class TaskController extends Controller
 
         return response()->json(['success' => true]);
     }
-
-    private function authorizeTask(Task $task)
+     private function authorizeTask(Task $task)
     {
         abort_if($task->user_id !== Auth::id(), 403);
     }
